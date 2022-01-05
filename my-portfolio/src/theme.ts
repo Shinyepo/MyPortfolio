@@ -8,16 +8,8 @@ export const theme = extendTheme({
       },
     },
   },
-  components: {
-    Input: {
-      baseStyle: {
-        textTransform: "uppercase",
-        borderColor: "red",
-        fontSize: "80px",
-      },
-      defaultProps: {
-        textTransform: "uppercase",
-      },
-    },
-  },
+  fonts: {
+    body: "Poppins",
+    heading: "Poppins"
+  }
 });

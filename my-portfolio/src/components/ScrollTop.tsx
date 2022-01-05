@@ -1,5 +1,5 @@
 import { DownloadIcon } from "@chakra-ui/icons";
-import { Box, Button, Icon } from "@chakra-ui/react";
+import { Box, Button, Icon, Tooltip } from "@chakra-ui/react";
 import { FC, useState } from "react";
 
 export const ScrollTop: FC = () => {
@@ -24,19 +24,23 @@ export const ScrollTop: FC = () => {
   window.addEventListener("scroll", scrollEvent);
 
   return (
-    <Box
-      d={visible ? "inline" : "none"}
-      pos="fixed"
-      bottom="60px"
-      right="40px"
-      zIndex="1"
-      bg="gray.700"
-      p="20px"
-      borderRadius="50%"
-      onClick={scrollToTop}
-      cursor="pointer"
-    >
-      <Icon as={DownloadIcon} boxSize={8} transform="rotate(180deg)">Scroll to top</Icon>
-    </Box>
+    <Tooltip label="Scroll to top" hasArrow>
+      <Box
+        d={visible ? "inline" : "none"}
+        pos="fixed"
+        bottom="60px"
+        right="40px"
+        zIndex="1"
+        bg="gray.700"
+        p="20px"
+        borderRadius="50%"
+        onClick={scrollToTop}
+        cursor="pointer"
+      >
+        <Icon as={DownloadIcon} boxSize={8} transform="rotate(180deg)">
+          Scroll to top
+        </Icon>
+      </Box>
+    </Tooltip>
   );
 };

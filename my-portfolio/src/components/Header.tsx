@@ -11,7 +11,6 @@ export const Header: FC<Props> = ({toContact, toProjects}) => (
   <Flex
     minH="60px"
     borderBottom="1px solid rgba(255,255,255,.2)"
-    boxShadow="0 3px 40px rgba(255,255,255,.1)"
     justifyContent="flex-end"
     pr="40px"
   >

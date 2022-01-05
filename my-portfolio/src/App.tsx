@@ -16,6 +16,7 @@ import { Projects } from "./components/Projects";
 import { theme } from "./theme";
 import { ScrollTop } from "./components/ScrollTop";
 import { Contact } from "./components/Contact";
+import { Footer } from "./components/Footer";
 
 export const App = () => {
   const projectRef = useRef<HTMLDivElement>(null);
@@ -40,6 +41,7 @@ export const App = () => {
         </Grid>
         <Projects refProp={projectRef} />
         <Contact refProp={contactRef} />
+        <Footer />
       </Box>
       <ScrollTop />
     </ChakraProvider>
