@@ -16,6 +16,7 @@ export const Header: FC<Props> = ({toContact, toProjects}) => (
   >
     <Grid justifySelf="right">
       <HStack spacing={7} >
+          <ColorModeSwitcher />
           <Text cursor="pointer" onClick={toProjects}>My Projects</Text>
           <Text cursor="pointer" onClick={toContact}>Contact</Text>
         {/* <ColorModeSwitcher /> */}

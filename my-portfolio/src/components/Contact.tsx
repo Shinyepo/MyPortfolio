@@ -4,7 +4,6 @@ import {
   FormControl,
   FormLabel,
   Heading,
-  Input,
   Text,
   Textarea,
   VStack,
@@ -53,12 +52,12 @@ export const Contact: FC<Props> = ({ refProp }) => {
           <VStack spacing={2}>
             <FormControl>
               <FormLabel htmlFor="name">Name</FormLabel>
-              <DarkInput changeEvent={handleChange} fn="name" ph="Your name" />
+              <DarkInput changeevent={handleChange} fn="name" ph="Your name" />
             </FormControl>
             <FormControl>
               <FormLabel htmlFor="email">Email</FormLabel>
               <DarkInput
-                changeEvent={handleChange}
+                changeevent={handleChange}
                 fn="email"
                 ph="Your email"
                 type="email"
@@ -66,7 +65,7 @@ export const Contact: FC<Props> = ({ refProp }) => {
             </FormControl>
             <FormControl>
               <FormLabel htmlFor="topic">Topic</FormLabel>
-              <DarkInput changeEvent={handleChange} fn="topic" ph="Topic" />
+              <DarkInput changeevent={handleChange} fn="topic" ph="Topic" />
             </FormControl>
             <FormControl>
               <FormLabel htmlFor="message">Message</FormLabel>

@@ -1,5 +1,5 @@
 import { DownloadIcon } from "@chakra-ui/icons";
-import { Box, Button, Icon, Tooltip } from "@chakra-ui/react";
+import { Box, Icon, Tooltip } from "@chakra-ui/react";
 import { FC, useState } from "react";
 
 export const ScrollTop: FC = () => {

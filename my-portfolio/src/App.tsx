@@ -4,13 +4,10 @@ import {
   ChakraProvider,
   Box,
   Text,
-  Link,
   VStack,
-  Code,
   Grid,
   Heading,
 } from "@chakra-ui/react";
-import { Logo } from "./Logo";
 import { Header } from "./components/Header";
 import { Projects } from "./components/Projects";
 import { theme } from "./theme";
