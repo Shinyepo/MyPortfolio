@@ -7,8 +7,10 @@ import {
   Link,
   Text,
   Tooltip,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { FC } from "react";
+import { colorMode } from "../theme";
 
 interface Props {
   image: string;
@@ -19,6 +21,7 @@ interface Props {
 }
 
 export const ProjectPanel: FC<Props> = ({ image, title, desc, tech, url }) => {
+  const color = useColorModeValue(colorMode.lightIcon, colorMode.darkIcon);
   return (
     <Box textAlign="left" p={7}>
       <Center>
@@ -43,7 +46,7 @@ export const ProjectPanel: FC<Props> = ({ image, title, desc, tech, url }) => {
           <Link href={url ?? "#"} isExternal>
             <Icon
               as={ArrowForwardIcon}
-              color="gray.700"
+              color={color}
               boxSize={8}
               cursor="pointer"
               mr="0"

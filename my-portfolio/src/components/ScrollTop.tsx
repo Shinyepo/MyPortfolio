@@ -1,9 +1,14 @@
 import { DownloadIcon } from "@chakra-ui/icons";
-import { Box, Icon, Tooltip } from "@chakra-ui/react";
+import { Box, Icon, Tooltip, useColorModeValue } from "@chakra-ui/react";
 import { FC, useState } from "react";
+import { colorMode } from "../theme";
 
 export const ScrollTop: FC = () => {
   const [visible, setVisible] = useState(false);
+  const bgColor = useColorModeValue(colorMode.lightBg, colorMode.darkBg);
+  const iconColor = useColorModeValue(colorMode.lightIcon, colorMode.darkIcon);
+
+
 
   const scrollEvent = () => {
     const scrolled = document.documentElement.scrollTop;
@@ -31,13 +36,13 @@ export const ScrollTop: FC = () => {
         bottom="60px"
         right="40px"
         zIndex="1"
-        bg="gray.700"
+        bg={bgColor}
         p="20px"
         borderRadius="50%"
         onClick={scrollToTop}
         cursor="pointer"
       >
-        <Icon as={DownloadIcon} boxSize={8} transform="rotate(180deg)">
+        <Icon as={DownloadIcon} color={iconColor} boxSize={8} transform="rotate(180deg)">
           Scroll to top
         </Icon>
       </Box>
