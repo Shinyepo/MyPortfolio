@@ -9,5 +9,15 @@ interface Props {
 }
 
 export const DarkInput: FC<Props> = ({ ph, fn, changeevent, type }) => (
-  <Input bg="gray.600" borderColor="gray.700" color="white" placeholder={ph} name={fn} id={fn} onChange={changeevent} type={type ?? ""} />
+  <Input
+    bg="gray.600"
+    borderColor="gray.700"
+    color="white"
+    autoComplete="false"
+    placeholder={ph}
+    name={fn}
+    id={fn}
+    onChange={changeevent}
+    type={type ?? ""}
+  />
 );

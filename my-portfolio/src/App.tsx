@@ -15,11 +15,15 @@ import { ScrollTop } from "./components/ScrollTop";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ComputingSkills } from "./components/ComputingSkills";
+import { init } from "@emailjs/browser";
+import { userId } from "./consts";
 
 export const App = () => {
   const projectRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
+
+  init(userId);
 
   const scrollToProjects = () => projectRef.current!.scrollIntoView();
   const scrollToContact = () => contactRef.current!.scrollIntoView();

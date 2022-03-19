@@ -1,15 +1,30 @@
 import {
   Box,
   Button,
+  Flex,
   FormControl,
   FormLabel,
   Heading,
   Text,
   Textarea,
+  useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import { ChangeEvent, FC, RefObject, useState } from "react";
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  FC,
+  FormEventHandler,
+  MutableRefObject,
+  RefObject,
+  SyntheticEvent,
+  useRef,
+  useState,
+} from "react";
+import { colorMode } from "../theme";
 import { DarkInput } from "./DarkInput";
+import { sendForm } from "@emailjs/browser";
+import { serviceId, templateId } from "../consts";
 
 type ContactForm = {
   [key: string]: string | undefined;
@@ -24,31 +39,50 @@ interface Props {
 }
 
 export const Contact: FC<Props> = ({ refProp }) => {
+  const formul = useRef() as MutableRefObject<HTMLFormElement>;
+
   const [form, setForm] = useState<ContactForm>();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const color = useColorModeValue(colorMode.darkBg, colorMode.lightBg);
+  const invColor = useColorModeValue(colorMode.lightBg, colorMode.darkBg);
+  const invText = useColorModeValue("white", "black");
+  const hoverBg = useColorModeValue("gray.600", "gray.400");
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
+    console.log(name, value);
+
     setForm({
       ...form,
       [name]: value,
     });
+  };
+
+  const handleSubmit = async (e: SyntheticEvent) => {
+    e.preventDefault();
     console.log(form);
+
+    const res = await sendForm(serviceId, templateId, formul.current);
+    console.log(res);
   };
 
   return (
-    <Box
-      bg="#dbdde6"
+    <Flex
+      bg={color}
       borderTop="1px solid gray"
       ref={refProp}
-      h="600px"
-      color="black"
+      color={invText}
+      flexDir="column"
+      pb="20px"
     >
       <Heading pt="30px">Contact me!</Heading>
       <Text fontSize="md">
         Feel free to contact me if you have any questions!
       </Text>
       <Box w="600px" justifySelf="center" mx="auto" mt="60px">
-        <form>
+        <form ref={formul} onSubmit={handleSubmit}>
           <VStack spacing={2}>
             <FormControl>
               <FormLabel htmlFor="name">Name</FormLabel>
@@ -70,21 +104,30 @@ export const Contact: FC<Props> = ({ refProp }) => {
             <FormControl>
               <FormLabel htmlFor="message">Message</FormLabel>
               <Textarea
-                changeEvent={handleChange}
+                onChange={handleChange}
                 name="message"
                 id="message"
                 placeholder="Your message"
                 bg="gray.600"
-                borderColor="gray.700"
                 color="white"
+                borderColor="gray.700"
+                maxBlockSize="200px"
+                autoComplete="false"
               />
-            </FormControl>            
+            </FormControl>
           </VStack>
-          <Button float="right" mt="12px" bg="gray.700" color="white" _hover={{bg: "gray.400", color: "black"}} type="submit" >
-              Send
-            </Button>
+          <Button
+            float="right"
+            mt="12px"
+            bg={invColor}
+            color={color}
+            _hover={{ bg: hoverBg, color: invText }}
+            type="submit"
+          >
+            Send
+          </Button>
         </form>
       </Box>
-    </Box>
+    </Flex>
   );
 };

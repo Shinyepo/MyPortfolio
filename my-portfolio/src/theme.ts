@@ -4,11 +4,12 @@ export const theme: ThemeConfig = extendTheme({
   initialColorMode: "dark",
   useSystemColorMode: false,
   styles: {
-    global: {
-      html: {
-        scrollBehavior: "smooth",
+    global: (props: any ) => ({
+      'html, body': {
+        backgroundColor: props.colorMode === 'dark' ? 'gray.900' : 'gray.100',
+        scrollBehavior: "smooth"
       },
-    },
+    }),
   },
   fonts: {
     body: "Poppins",
@@ -21,6 +22,8 @@ export const colorMode = {
   lightBorder: "rgba(0,0,0,.2)",
   darkIcon: "gray.300",
   lightIcon: "gray.700",
-  darkBg: "gray.700",
-  lightBg: "gray.300"
+  darkBg: "gray.800",
+  lightBg: "gray.200",
+  altDarkBg: "gray.700",
+  altLightBg: "gray.300"
 };
