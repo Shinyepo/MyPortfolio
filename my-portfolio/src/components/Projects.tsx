@@ -33,7 +33,7 @@ export const Projects: FC<Props> = ({ refProp }) => {
         <GridItem colSpan={1}>
           <ProjectPanel
             title="MonkeyFigths - a browser game"
-            image="http://cdn.statcdn.com/Infographic/images/normal/4056.jpeg"
+            image="https://i.imgur.com/bnq3PSG.png"
             desc="A simple browser game about recruiting units, fighting with other players and climbing leaderboard. Complete missions to get resources for upgrading your buildings and recruit more units. Compete with other players and reach the top of the leaderboard."
           />
         </GridItem>

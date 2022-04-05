@@ -38,7 +38,7 @@ export const App = () => {
             <Heading>Hi, i'm Daniel!</Heading>
             <Text fontSize="md" w="300px">
               I'm a full stack web developer currently looking for a
-              job. In free time im developing my Discord bot and Dashboard. You
+              job. In free time i'm developing my Discord bot and Dashboard. You
               can check my projects below :)
             </Text>
           </VStack>
