@@ -1,13 +1,10 @@
 import {
   ArrowForwardIcon,
-  ArrowLeftIcon,
-  ArrowRightIcon,
 } from "@chakra-ui/icons";
 import {
   Box,
   Center,
   Flex,
-  HStack,
   Icon,
   Image,
   Link,
@@ -23,8 +20,10 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { colorMode } from "../theme";
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 
 interface Props {
   image: string;
@@ -32,13 +31,25 @@ interface Props {
   desc: string;
   tech?: string;
   url?: string;
+  slideImages?: Array<slideImages>;
 }
 
-export const ProjectPanel: FC<Props> = ({ image, title, desc, tech, url }) => {
+type slideImages = {
+  url: string;
+  caption?: string;
+};
+
+export const ProjectPanel: FC<Props> = ({
+  image,
+  title,
+  desc,
+  tech,
+  url,
+  slideImages,
+}) => {
   const color = useColorModeValue(colorMode.lightIcon, colorMode.darkIcon);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const bgColor = useColorModeValue(colorMode.lightBg, colorMode.darkBg);
-  const [idx, setIdx] = useState(0);
 
   return (
     <Box textAlign="left" p={7}>
@@ -62,23 +73,26 @@ export const ProjectPanel: FC<Props> = ({ image, title, desc, tech, url }) => {
           size="full"
         >
           <ModalOverlay />
-          <ModalContent bg={bgColor}>
+          <ModalContent bg="">
             <ModalHeader>{title}</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <VStack justifyContent="center">
-                <Image
-                  src={image}
-                  objectFit="initial"
-                  // boxSize="xl"
+              <VStack>
+                <Box
                   maxW="1450px"
                   maxH="850px"
-                  alt="Missing image"
-                />
-                <HStack justifyContent="center" pb="4px" pt="10px">
-                  <Icon as={ArrowLeftIcon} />
-                  <Icon as={ArrowRightIcon} />
-                </HStack>
+                  w="100%"
+                  h="100%"
+                  className="slide-container"
+                >
+                  <Slide autoplay={false} transitionDuration="500" canSwipe={false}>
+                    {slideImages?.map((slideImage, index) => (
+                      <Flex className="each-slide" key={index}>
+                        <Image src={slideImage.url} alt="Missing image." />
+                      </Flex>
+                    ))}
+                  </Slide>
+                </Box>
               </VStack>
             </ModalBody>
           </ModalContent>

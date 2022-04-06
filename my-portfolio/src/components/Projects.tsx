@@ -1,4 +1,10 @@
-import { Box, Grid, GridItem, Heading, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { FC, RefObject } from "react";
 import { colorMode } from "../theme";
 import { ProjectPanel } from "./ProjectPanel";
@@ -6,6 +12,24 @@ import { ProjectPanel } from "./ProjectPanel";
 interface Props {
   refProp: RefObject<HTMLDivElement>;
 }
+
+const monkeyImages = [
+  {
+    url: "https://i.imgur.com/hjORCgo.png",
+  },
+  {
+    url: "https://i.imgur.com/jLyS6sA.png",
+  },
+  {
+    url: "https://i.imgur.com/2HIucju.png",
+  },
+  {
+    url: "https://i.imgur.com/NYiFwyL.png",
+  },
+  {
+    url: "https://i.imgur.com/swlvZJY.png",
+  },
+];
 
 export const Projects: FC<Props> = ({ refProp }) => {
   const color = useColorModeValue(colorMode.lightBorder, colorMode.darkBorder);
@@ -34,7 +58,9 @@ export const Projects: FC<Props> = ({ refProp }) => {
           <ProjectPanel
             title="MonkeyFigths - a browser game"
             image="https://i.imgur.com/bnq3PSG.png"
-            desc="A simple browser game about recruiting units, fighting with other players and climbing leaderboard. Complete missions to get resources for upgrading your buildings and recruit more units. Compete with other players and reach the top of the leaderboard."
+            desc="A simple browser game about recruiting units, fighting with other players and climbing leaderboard. Complete missions to get resources for upgrading your buildings and recruiting more units. Compete with other players and reach the top of the leaderboard."            
+            url="https://www.monkeyfights.shinyepo.dev/"
+            slideImages={monkeyImages}
           />
         </GridItem>
         <GridItem colSpan={1}>
