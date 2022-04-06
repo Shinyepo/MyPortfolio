@@ -7,7 +7,11 @@ import {
   Heading,
   Text,
   Textarea,
+  toast,
+  ToastId,
   useColorModeValue,
+  useToast,
+  UseToastOptions,
   VStack,
 } from "@chakra-ui/react";
 import {
@@ -28,10 +32,10 @@ import { serviceId, templateId } from "../consts";
 
 type ContactForm = {
   [key: string]: string | undefined;
-  name?: string;
-  email?: string;
-  topic?: string;
-  content?: string;
+  name: string;
+  email: string;
+  topic: string;
+  message: string;
 };
 
 interface Props {
@@ -40,8 +44,15 @@ interface Props {
 
 export const Contact: FC<Props> = ({ refProp }) => {
   const formul = useRef() as MutableRefObject<HTMLFormElement>;
+  const toast = useToast();
+  const toastRef = useRef() as MutableRefObject<ToastId | undefined>;
 
-  const [form, setForm] = useState<ContactForm>();
+  const [form, setForm] = useState<ContactForm>({
+    message: "",
+    email: "",
+    name: "",
+    topic: "",
+  });
 
   const color = useColorModeValue(colorMode.darkBg, colorMode.lightBg);
   const invColor = useColorModeValue(colorMode.lightBg, colorMode.darkBg);
@@ -52,7 +63,6 @@ export const Contact: FC<Props> = ({ refProp }) => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    console.log(name, value);
 
     setForm({
       ...form,
@@ -62,10 +72,62 @@ export const Contact: FC<Props> = ({ refProp }) => {
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log(form);
+    if (
+      form.email === "" ||
+      form.message === "" ||
+      form.name === "" ||
+      form.topic === ""
+    ) {
+      return failure("empty");
+    }
+    setForm({ message: "", email: "", name: "", topic: "" });
+
+    toastRef.current = toast({
+      title: "Sending message...",
+      status: "info",
+    });
 
     const res = await sendForm(serviceId, templateId, formul.current);
-    console.log(res);
+    if (res.status === 200) {
+      if (toastRef.current) {
+        toast.update(toastRef.current, {
+          title: "Message sent.",
+          description: "I've received your message :)",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+      } else {
+        toast({
+          title: "Message sent.",
+          description: "I've received your message :)",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+      }
+    } else {
+      failure("status");
+    }
+  };
+
+  const failure = (type: "empty" | "status") => {
+    const toastContent = {
+      title: "Error",
+      description:
+        type === "empty"
+          ? "You need to fill all the fields in order to send me your message."
+          : "Something went wrong while sending the message",
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+    } as UseToastOptions;
+    
+    if (toastRef.current) {
+      toast.update(toastRef.current, toastContent);
+    } else {
+      toast(toastContent);
+    }
   };
 
   return (
@@ -86,7 +148,12 @@ export const Contact: FC<Props> = ({ refProp }) => {
           <VStack spacing={2}>
             <FormControl>
               <FormLabel htmlFor="name">Name</FormLabel>
-              <DarkInput changeevent={handleChange} fn="name" ph="Your name" />
+              <DarkInput
+                changeevent={handleChange}
+                fn="name"
+                ph="Your name"
+                value={form?.name}
+              />
             </FormControl>
             <FormControl>
               <FormLabel htmlFor="email">Email</FormLabel>
@@ -95,15 +162,22 @@ export const Contact: FC<Props> = ({ refProp }) => {
                 fn="email"
                 ph="Your email"
                 type="email"
+                value={form?.email}
               />
             </FormControl>
             <FormControl>
               <FormLabel htmlFor="topic">Topic</FormLabel>
-              <DarkInput changeevent={handleChange} fn="topic" ph="Topic" />
+              <DarkInput
+                changeevent={handleChange}
+                fn="topic"
+                ph="Topic"
+                value={form?.topic}
+              />
             </FormControl>
             <FormControl>
               <FormLabel htmlFor="message">Message</FormLabel>
               <Textarea
+                value={form.message}
                 onChange={handleChange}
                 name="message"
                 id="message"

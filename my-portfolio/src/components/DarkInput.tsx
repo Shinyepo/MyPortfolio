@@ -6,9 +6,10 @@ interface Props {
   fn: string;
   type?: string;
   changeevent: (e: ChangeEvent<HTMLInputElement>) => void;
+  value: string | undefined
 }
 
-export const DarkInput: FC<Props> = ({ ph, fn, changeevent, type }) => (
+export const DarkInput: FC<Props> = ({ ph, fn, changeevent, type, value }) => (
   <Input
     bg="gray.600"
     borderColor="gray.700"
@@ -19,5 +20,6 @@ export const DarkInput: FC<Props> = ({ ph, fn, changeevent, type }) => (
     id={fn}
     onChange={changeevent}
     type={type ?? ""}
+    value={value}
   />
 );
