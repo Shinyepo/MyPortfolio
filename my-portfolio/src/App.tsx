@@ -17,6 +17,7 @@ import { Footer } from "./components/Footer";
 import { ComputingSkills } from "./components/ComputingSkills";
 import { init } from "@emailjs/browser";
 import { userId } from "./consts";
+import { AboutMe } from "./components/AboutMe";
 
 export const App = () => {
   const projectRef = useRef<HTMLDivElement>(null);
@@ -31,18 +32,13 @@ export const App = () => {
 
   return (
     <ChakraProvider theme={theme}>
-      <Header toProjects={scrollToProjects} toContact={scrollToContact} toSkills={scrollToSkills}/>
+      <Header
+        toProjects={scrollToProjects}
+        toContact={scrollToContact}
+        toSkills={scrollToSkills}
+      />
       <Box textAlign="center" fontSize="xl">
-        <Grid minH="800px" p={3}>
-          <VStack spacing={2} mt="150px">
-            <Heading>Hi, i'm Daniel!</Heading>
-            <Text fontSize="md" w="300px">
-              I'm a full stack web developer currently looking for a
-              job. In free time i'm developing my Discord bot and Dashboard. You
-              can check my projects below :)
-            </Text>
-          </VStack>
-        </Grid>
+        <AboutMe />
         <Projects refProp={projectRef} />
         <ComputingSkills refProp={skillsRef} />
         <Contact refProp={contactRef} />

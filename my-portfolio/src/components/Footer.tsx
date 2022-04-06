@@ -15,7 +15,7 @@ export const Footer: FC = () => {
         fontSize="sm"
         p="15px"
         color={fontColor}
-        width="1000px"
+        width="60%"
         justifyContent="space-between"
       >
         <Box>
