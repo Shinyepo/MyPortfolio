@@ -6,7 +6,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FC, RefObject } from "react";
-import { monkeyImages } from "../consts";
+import { monkeyImages, spiceImages } from "../consts";
 import { colorMode } from "../theme";
 import { ProjectPanel } from "./ProjectPanel";
 
@@ -39,26 +39,11 @@ export const Projects: FC<Props> = ({ refProp }) => {
         </GridItem>
         <GridItem colSpan={1}>
           <ProjectPanel
-            title="Placeholder Title"
-            image=""
-            desc="Placeholder"
-            slideImages={[]}
-          />
-        </GridItem>
-        <GridItem colSpan={1}>
-          <ProjectPanel
-            title="Placeholder Title"
-            image=""
-            desc="Placeholder"
-            slideImages={[]}
-          />
-        </GridItem>
-        <GridItem colSpan={1}>
-          <ProjectPanel
-            title="Placeholder Title"
-            image=""
-            desc="Placeholder"
-            slideImages={[]}
+            title="Spice - a restaurant website"
+            image="https://i.imgur.com/Fs4U0FE.png"
+            desc="A e-commerce website for fictional restaurant. With the manager account you can freely add, change and delete categories, subcategories, menu items, coupons or even users. User accounts have 4 different permission groups. Manager - a admin account with full access, Front Desk - managing orders and delivery, Kitchen - managing preparation state of the order and Customer - can only submit the order. Website is connected with Stripe's(online payment service) test mode."
+            url="https://www.spice.shinyepo.dev/"
+            slideImages={spiceImages}
           />
         </GridItem>
       </Grid>
