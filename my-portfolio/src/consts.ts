@@ -7,7 +7,7 @@ export const monkeyImages = [
     url: "https://i.imgur.com/hjORCgo.png",
   },
   {
-    url: "https://i.imgur.com/jLyS6sA.png",
+    url: "https://i.imgur.com/W6pwcVY.png",
   },
   {
     url: "https://i.imgur.com/2HIucju.png",

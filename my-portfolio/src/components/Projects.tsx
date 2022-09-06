@@ -33,7 +33,7 @@ export const Projects: FC<Props> = ({ refProp }) => {
             title="MonkeyFigths - a browser game"
             image="https://i.imgur.com/bnq3PSG.png"
             desc="A simple browser game about recruiting units, fighting with other players and climbing leaderboard. Complete missions to get resources for upgrading your buildings and recruiting more units. Compete with other players and reach the top of the leaderboard."            
-            url="https://www.monkeyfights.shinyepo.dev/"
+            url="https://www.monkeyfights.herokuapp.net/"
             slideImages={monkeyImages}
           />
         </GridItem>
@@ -42,7 +42,7 @@ export const Projects: FC<Props> = ({ refProp }) => {
             title="Spice - a restaurant website"
             image="https://i.imgur.com/Fs4U0FE.png"
             desc="A e-commerce website for fictional restaurant. With the manager account you can freely add, change and delete categories, subcategories, menu items, coupons or even users. User accounts have 4 different permission groups. Manager - a admin account with full access, Front Desk - managing orders and delivery, Kitchen - managing preparation state of the order and Customer - can only submit the order. Website is connected with Stripe's(online payment service) test mode."
-            url="https://www.spice.shinyepo.dev/"
+            url="https://www.spice.herokuapp.net/"
             slideImages={spiceImages}
           />
         </GridItem>

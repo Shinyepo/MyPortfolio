@@ -1,12 +1,22 @@
-import { Box, Flex, Image, Link, useColorModeValue } from "@chakra-ui/react";
+import { EmailIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  Flex,
+  Icon,
+  Image,
+  Link,
+  List,
+  ListIcon,
+  ListItem,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { FC } from "react";
+import { FaDiscord, FaGithub } from "react-icons/fa";
+import { colorMode } from "../theme";
 
 export const Footer: FC = () => {
   const fontColor = useColorModeValue("gray.600", "gray.500");
-  const gitLogo = useColorModeValue(
-    "https://i.imgur.com/Nx9qW1n.png",
-    "https://i.imgur.com/nwb7oh6.png"
-  );
+  const iconColor = useColorModeValue(colorMode.lightIcon, colorMode.darkIcon);
   return (
     <Box borderTop="1px solid gray" h="120px">
       <Flex
@@ -18,11 +28,31 @@ export const Footer: FC = () => {
         width="60%"
         justifyContent="space-between"
       >
-        <Box>
-          <Link isExternal href="https://github.com/Shinyepo">
-            <Image src={gitLogo} boxSize="12px" d="inline-block" /> My GitHub
-          </Link>
-        </Box>
+        <List textAlign={"left"}>
+          <ListItem verticalAlign={"middle"}>
+            <Link isExternal href="https://github.com/Shinyepo">
+              <ListIcon as={FaGithub} color={iconColor} boxSize="16px" d="inline-block" /> My GitHub
+            </Link>
+          </ListItem>
+          <ListItem margin="auto">
+            <ListIcon
+              as={EmailIcon}
+              color={iconColor}
+              boxSize="16px"
+              transform=""
+            ></ListIcon>{" "}
+            shinyepo42@gmail.com
+          </ListItem>
+          <ListItem>
+            <ListIcon
+              as={FaDiscord}
+              color={iconColor}
+              boxSize="16px"
+              transform=""
+            ></ListIcon>{" "}
+            Shiny#2819
+          </ListItem>
+        </List>
         <Box textAlign="right">Built with React and Chakra Ui</Box>
       </Flex>
     </Box>
