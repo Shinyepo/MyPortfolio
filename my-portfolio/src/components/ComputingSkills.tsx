@@ -43,6 +43,10 @@ export const ComputingSkills: FC<Props> = ({ refProp }) => {
           title="GraphQL"
         />
         <Skill
+        url="https://i.imgur.com/M1U1aIs.png"
+        title="Redis"
+      />
+        <Skill
           url="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png"
           title="Git"
         />

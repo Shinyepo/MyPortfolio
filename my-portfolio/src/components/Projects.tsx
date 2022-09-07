@@ -39,7 +39,7 @@ export const Projects: FC<Props> = ({ refProp }) => {
         </GridItem>
         <GridItem colSpan={1}>
           <ProjectPanel
-            title="Spice - a restaurant website"
+            title="Spice - E-commerce"
             image="https://i.imgur.com/Fs4U0FE.png"
             desc="A e-commerce website for fictional restaurant. With the manager account you can freely add, change and delete categories, subcategories, menu items, coupons or even users. User accounts have 4 different permission groups. Manager - a admin account with full access, Front Desk - managing orders and delivery, Kitchen - managing preparation state of the order and Customer - can only submit the order. Website is connected with Stripe's(online payment service) test mode."
             url="https://www.spice.herokuapp.net/"
