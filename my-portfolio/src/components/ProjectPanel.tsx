@@ -49,7 +49,7 @@ export const ProjectPanel: FC<Props> = ({
 }) => {
   const color = useColorModeValue(colorMode.lightIcon, colorMode.darkIcon);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const bgColor = useColorModeValue(colorMode.lightBg, colorMode.darkBg);
+  // const bgColor = useColorModeValue(colorMode.lightBg, colorMode.darkBg);
 
   return (
     <Box textAlign="left" p={7}>
@@ -102,7 +102,7 @@ export const ProjectPanel: FC<Props> = ({
       <Text fontSize="sm">{desc}</Text>
       {tech ? (
         <Text fontSize="x-small" fontStyle="italic">
-          Used technologies: {tech}
+          Made with: {tech}
         </Text>
       ) : null}
       <Box textAlign="right">

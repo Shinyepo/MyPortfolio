@@ -2,8 +2,6 @@ import { EmailIcon } from "@chakra-ui/icons";
 import {
   Box,
   Flex,
-  Icon,
-  Image,
   Link,
   List,
   ListIcon,
@@ -31,7 +29,7 @@ export const Footer: FC = () => {
         <List textAlign={"left"}>
           <ListItem verticalAlign={"middle"}>
             <Link isExternal href="https://github.com/Shinyepo">
-              <ListIcon as={FaGithub} color={iconColor} boxSize="16px" d="inline-block" /> My GitHub
+              <ListIcon as={FaGithub} color={iconColor} boxSize="16px" d="inline-block" />{" "}My GitHub
             </Link>
           </ListItem>
           <ListItem margin="auto">
@@ -40,7 +38,7 @@ export const Footer: FC = () => {
               color={iconColor}
               boxSize="16px"
               transform=""
-            ></ListIcon>{" "}
+            />{" "}
             shinyepo42@gmail.com
           </ListItem>
           <ListItem>
@@ -49,7 +47,7 @@ export const Footer: FC = () => {
               color={iconColor}
               boxSize="16px"
               transform=""
-            ></ListIcon>{" "}
+            />{" "}
             Shiny#2819
           </ListItem>
         </List>
