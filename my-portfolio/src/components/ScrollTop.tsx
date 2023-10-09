@@ -5,7 +5,6 @@ import { colorMode } from "../theme";
 
 export const ScrollTop: FC = () => {
   const [visible, setVisible] = useState(false);
-  const bgColor = useColorModeValue(colorMode.darkBg, colorMode.lightBg);
   const iconColor = useColorModeValue(colorMode.darkIcon, colorMode.lightIcon);
   const altBg = useColorModeValue(colorMode.altDarkBg, colorMode.altLightBg);
 
@@ -32,7 +31,7 @@ export const ScrollTop: FC = () => {
   return (
     <Tooltip label="Scroll to top" hasArrow>
       <Box
-        d={visible ? "inline" : "none"}
+        display={visible ? "inline" : "none"}
         pos="fixed"
         bottom="60px"
         right="40px"

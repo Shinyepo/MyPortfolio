@@ -1,6 +1,6 @@
-export const serviceId = "";
-export const templateId = "";
-export const userId = "";
+export const serviceId = "service_rq0zrcb";
+export const templateId = "template_gmwmlm9";
+export const userId = "HBq_EA35giutVXsfg";
 
 export const monkeyImages = [
   {

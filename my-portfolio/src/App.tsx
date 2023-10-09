@@ -1,13 +1,5 @@
 import { useRef } from "react";
-
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  VStack,
-  Grid,
-  Heading,
-} from "@chakra-ui/react";
+import { ChakraProvider, Box } from "@chakra-ui/react";
 import { Header } from "./components/Header";
 import { Projects } from "./components/Projects";
 import { theme } from "./theme";
