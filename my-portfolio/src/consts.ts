@@ -50,5 +50,12 @@ export const spiceImages = [
   },
   {
     url: "https://i.imgur.com/Ao5c8Gg.png",
-  }
+  },
+];
+
+export const epodditImages = [
+  { url: "https://i.imgur.com/4bvGZPP.png" },
+  { url: "https://i.imgur.com/tgTQ5o2.png" },
+  { url: "https://i.imgur.com/9hd9XCD.png" },
+  { url: "https://i.imgur.com/F1Nxh8P.png" },
 ];

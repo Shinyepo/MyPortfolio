@@ -1,6 +1,4 @@
-import {
-  ArrowForwardIcon,
-} from "@chakra-ui/icons";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import {
   Box,
   Center,
@@ -24,6 +22,7 @@ import { FC } from "react";
 import { colorMode } from "../theme";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import "./ProjectPanel.css";
 
 interface Props {
   image: string;
@@ -71,8 +70,10 @@ export const ProjectPanel: FC<Props> = ({
           isOpen={isOpen}
           motionPreset="slideInBottom"
           size="full"
+          closeOnEsc={true}
+          closeOnOverlayClick={true}
         >
-          <ModalOverlay />
+          <ModalOverlay bg="grayAlpha.300" backdropFilter="blur(10px)" />
           <ModalContent bg="">
             <ModalHeader>{title}</ModalHeader>
             <ModalCloseButton />
@@ -85,7 +86,12 @@ export const ProjectPanel: FC<Props> = ({
                   h="100%"
                   className="slide-container"
                 >
-                  <Slide autoplay={false} transitionDuration="500" canSwipe={false}>
+                  <Slide
+                    autoplay={false}
+                    transitionDuration="500"
+                    canSwipe={false}
+                    indicators={true}
+                  >
                     {slideImages?.map((slideImage, index) => (
                       <Flex className="each-slide" key={index}>
                         <Image src={slideImage.url} alt="Missing image." />
@@ -101,7 +107,7 @@ export const ProjectPanel: FC<Props> = ({
       <Text fontSize="4xl">{title}</Text>
       <Text fontSize="sm">{desc}</Text>
       {tech ? (
-        <Text fontSize="x-small" fontStyle="italic">
+        <Text fontSize="x-small" fontStyle="italic" mt={2}>
           Made with: {tech}
         </Text>
       ) : null}

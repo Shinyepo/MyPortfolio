@@ -10,8 +10,8 @@ interface Props {
 export const ComputingSkills: FC<Props> = ({ refProp }) => {
   const color = useColorModeValue(colorMode.lightBorder, colorMode.darkBorder);
   const gitLogo = useColorModeValue(
-    "https://i.imgur.com/Nx9qW1n.png",
-    "https://i.imgur.com/nwb7oh6.png"
+    "/tech/githubDark.png",
+    "/tech/githubLight.png"
   );
   return (
     <Box ref={refProp}>
@@ -26,31 +26,18 @@ export const ComputingSkills: FC<Props> = ({ refProp }) => {
         gap="10px"
         p={6}
       >
-        <Skill url="https://i.imgur.com/nIETPOK.png" title="C#" />
-        <Skill url="https://i.imgur.com/jpZGJYT.png" title="HTML" />
-        <Skill url="https://i.imgur.com/YGMDFbO.png" title="CSS" />
-        <Skill url="https://i.imgur.com/VeCmGbz.png" title="Bootstrap" />
-        <Skill url="https://i.imgur.com/gDFIzXx.png" title="JavaScript" />
-        <Skill url="https://i.imgur.com/60iFpL1.png" title="TypeScript" />
-        <Skill url="https://i.imgur.com/d7kDrtY.png" title="Node.js" />
-        <Skill url="https://i.imgur.com/5DHVRLF.png" title="React" />
-        <Skill
-          url="https://wiki.postgresql.org/images/3/30/PostgreSQL_logo.3colors.120x120.png"
-          title="PostgreSQL"
-        />        
-        <Skill
-          url="https://iconape.com/wp-content/png_logo_vector/graphql-logo.png"
-          title="GraphQL"
-        />
-        <Skill
-        url="https://i.imgur.com/M1U1aIs.png"
-        title="Redis"
-      />
-        <Skill
-          url="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png"
-          title="Git"
-        />
-        
+        <Skill url="/tech/ts.png" title="TypeScript" />
+        <Skill url="/tech/js.png" title="JavaScript" />
+        <Skill url="/tech/react.png" title="React" />
+        <Skill url="/tech/nextjs.png" title="Next.js" />
+        <Skill url="/tech/nodejs.png" title="Node.js" />
+        <Skill url="/tech/postgresql.png" title="PostgreSQL" />
+        <Skill url="/tech/graphql.png" title="GraphQL" />
+        <Skill url="/tech/prisma.png" title="Prisma" />
+        <Skill url="/tech/redis.png" title="Redis" />
+        <Skill url="/tech/csharp.png" title="C#" />
+        <Skill url="/tech/bootstrap.png" title="Bootstrap" />
+        <Skill url="/tech/git.png" title="Git" />
         <Skill url={gitLogo} title="GitHub" />
       </Flex>
     </Box>

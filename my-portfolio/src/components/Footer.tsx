@@ -48,7 +48,7 @@ export const Footer: FC = () => {
               boxSize="16px"
               transform=""
             />{" "}
-            Shiny#2819
+            Shinyepo
           </ListItem>
         </List>
         <Box textAlign="right">Built with React and Chakra Ui</Box>

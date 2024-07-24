@@ -6,7 +6,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FC, RefObject } from "react";
-import { monkeyImages, spiceImages } from "../consts";
+import { epodditImages, monkeyImages, spiceImages } from "../consts";
 import { colorMode } from "../theme";
 import { ProjectPanel } from "./ProjectPanel";
 
@@ -30,9 +30,19 @@ export const Projects: FC<Props> = ({ refProp }) => {
         <GridItem colSpan={2} rowSpan={2}></GridItem>
         <GridItem colSpan={1}>
           <ProjectPanel
+            title="Epoddit - Reddit Clone"
+            image="https://i.imgur.com/4bvGZPP.png"
+            desc="Epoddit is a clone of a very popular website called Reddit. Users can create threads to discuss different topics. Comment, like and dislike content they enjoy or not."
+            url="https://epoddit.shinyepo.dev/"
+            slideImages={epodditImages}
+            tech="TypeScript - React, NextJS, Prisma and Jest."
+          />
+        </GridItem>
+        <GridItem colSpan={1}>
+          <ProjectPanel
             title="MonkeyFigths - a browser game"
             image="https://i.imgur.com/bnq3PSG.png"
-            desc="A simple browser game about recruiting units, fighting with other players and climbing leaderboard. Complete missions to get resources for upgrading your buildings and recruiting more units. Compete with other players and reach the top of the leaderboard."            
+            desc="A simple browser game about recruiting units, fighting with other players and climbing leaderboard. Complete missions to get resources for upgrading your buildings and recruiting more units. Compete with other players and reach the top of the leaderboard."
             url="https://mf.shinyepo.dev/"
             slideImages={monkeyImages}
             tech="C# - Blazor WebAssembly, SendGrid"
