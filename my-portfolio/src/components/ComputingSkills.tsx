@@ -1,10 +1,12 @@
-import { Box, Flex, Heading, useColorModeValue } from "@chakra-ui/react";
+"use client";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import { FC, RefObject } from "react";
 import { colorMode } from "../theme";
 import { Skill } from "./Skill";
+import { useColorModeValue } from "./ui/color-mode";
 
 interface Props {
-  refProp: RefObject<HTMLDivElement>;
+  refProp: RefObject<HTMLDivElement | null>;
 }
 
 export const ComputingSkills: FC<Props> = ({ refProp }) => {

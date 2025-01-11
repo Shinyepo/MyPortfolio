@@ -1,22 +1,16 @@
+"use client";
 import {
   Box,
   Button,
   Flex,
-  FormControl,
-  FormLabel,
   Heading,
   Text,
   Textarea,
-  ToastId,
-  useColorModeValue,
-  useToast,
-  UseToastOptions,
   VStack,
 } from "@chakra-ui/react";
 import {
   ChangeEvent,
   FC,
-  MutableRefObject,
   RefObject,
   SyntheticEvent,
   useRef,
@@ -26,6 +20,9 @@ import { colorMode } from "../theme";
 import { DarkInput } from "./DarkInput";
 import { sendForm } from "@emailjs/browser";
 import { serviceId, templateId } from "../consts";
+import { useColorModeValue } from "./ui/color-mode";
+import { toaster } from "./ui/toaster";
+import { Field } from "./ui/field";
 
 type ContactForm = {
   [key: string]: string | undefined;
@@ -36,13 +33,12 @@ type ContactForm = {
 };
 
 interface Props {
-  refProp: RefObject<HTMLDivElement>;
+  refProp: RefObject<HTMLDivElement | null>;
 }
 
 export const Contact: FC<Props> = ({ refProp }) => {
-  const formul = useRef() as MutableRefObject<HTMLFormElement>;
-  const toast = useToast();
-  const toastRef = useRef() as MutableRefObject<ToastId | undefined>;
+  const formul = useRef(null) as RefObject<HTMLFormElement| null>;
+  const toastRef = useRef(null) as RefObject<any | undefined>;
 
   const [form, setForm] = useState<ContactForm>({
     message: "",
@@ -79,28 +75,32 @@ export const Contact: FC<Props> = ({ refProp }) => {
     }
     setForm({ message: "", email: "", name: "", topic: "" });
 
-    toastRef.current = toast({
+    toastRef.current = toaster.create({
       title: "Sending message...",
-      status: "info",
+      type: "info",
     });
 
-    const res = await sendForm(serviceId, templateId, formul.current);
+    const res = await sendForm(serviceId, templateId, formul.current!);
     if (res.status === 200) {
       if (toastRef.current) {
-        toast.update(toastRef.current, {
+        toaster.update(toastRef.current, {
           title: "Message sent.",
           description: "I've received your message :)",
-          status: "success",
+          type: "success",
           duration: 5000,
-          isClosable: true,
+          meta: {
+            closable: true
+          },
         });
       } else {
-        toast({
+        toaster.create({
           title: "Message sent.",
           description: "I've received your message :)",
-          status: "success",
+          type: "success",
           duration: 5000,
-          isClosable: true,
+          meta: {
+            closable: true
+          },
         });
       }
     } else {
@@ -115,15 +115,17 @@ export const Contact: FC<Props> = ({ refProp }) => {
         type === "empty"
           ? "You need to fill all the fields in order to send me your message."
           : "Something went wrong while sending the message",
-      status: "error",
+      type: "error",
       duration: 3000,
-      isClosable: true,
-    } as UseToastOptions;
+      meta: {
+        closable: true
+      },
+    };
     
     if (toastRef.current) {
-      toast.update(toastRef.current, toastContent);
+      toaster.update(toastRef.current, toastContent);
     } else {
-      toast(toastContent);
+      toaster.create(toastContent);
     }
   };
 
@@ -142,18 +144,16 @@ export const Contact: FC<Props> = ({ refProp }) => {
       </Text>
       <Box w="600px" justifySelf="center" mx="auto" mt="60px">
         <form ref={formul} onSubmit={handleSubmit}>
-          <VStack spacing={2}>
-            <FormControl>
-              <FormLabel htmlFor="name">Name</FormLabel>
+          <VStack gap={2}>
+            <Field label="Name">
               <DarkInput
                 changeevent={handleChange}
                 fn="name"
                 ph="Your name"
                 value={form?.name}
               />
-            </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="email">Email</FormLabel>
+            </Field>
+            <Field label="Email">
               <DarkInput
                 changeevent={handleChange}
                 fn="email"
@@ -161,18 +161,16 @@ export const Contact: FC<Props> = ({ refProp }) => {
                 type="email"
                 value={form?.email}
               />
-            </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="topic">Topic</FormLabel>
+            </Field>
+            <Field label="Topic">
               <DarkInput
                 changeevent={handleChange}
                 fn="topic"
                 ph="Topic"
                 value={form?.topic}
               />
-            </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="message">Message</FormLabel>
+            </Field>
+            <Field label="Message">
               <Textarea
                 value={form.message}
                 onChange={handleChange}
@@ -185,7 +183,7 @@ export const Contact: FC<Props> = ({ refProp }) => {
                 maxBlockSize="200px"
                 autoComplete="false"
               />
-            </FormControl>
+            </Field>
           </VStack>
           <Button
             float="right"

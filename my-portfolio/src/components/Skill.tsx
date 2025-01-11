@@ -1,3 +1,4 @@
+"use client";
 import { Box, Heading, Image } from "@chakra-ui/react";
 import { FC } from "react";
 

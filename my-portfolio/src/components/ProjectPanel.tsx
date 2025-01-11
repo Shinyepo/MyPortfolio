@@ -1,4 +1,4 @@
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+"use client";
 import {
   Box,
   Center,
@@ -6,23 +6,27 @@ import {
   Icon,
   Image,
   Link,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay,
   Text,
-  Tooltip,
-  useColorModeValue,
-  useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import { FC } from "react";
 import { colorMode } from "../theme";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import "./ProjectPanel.css";
+import { useColorModeValue } from "./ui/color-mode";
+import { Tooltip } from "./ui/tooltip";
+import { LuExternalLink } from "react-icons/lu";
+import {
+  DialogBackdrop,
+  DialogBody,
+  DialogCloseTrigger,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
 
 interface Props {
   image: string;
@@ -38,46 +42,44 @@ type slideImages = {
   caption?: string;
 };
 
-export const ProjectPanel: FC<Props> = ({
+export const ProjectPanel = ({
   image,
   title,
   desc,
   tech,
   url,
   slideImages,
-}) => {
+}: Props) => {
   const color = useColorModeValue(colorMode.lightIcon, colorMode.darkIcon);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  // const bgColor = useColorModeValue(colorMode.lightBg, colorMode.darkBg);
 
   return (
-    <Box textAlign="left" p={7}>
+    <Box textAlign="left" p="7">
       <Center>
-        <Tooltip label="Show me more!">
-          <Image
-            src={image}
-            alt={title}
-            h="250px"
-            w="400px"
-            objectFit="cover"
-            alignSelf="center"
-            onClick={onOpen}
-          />
-        </Tooltip>
-        <Modal
-          isCentered
-          onClose={onClose}
-          isOpen={isOpen}
-          motionPreset="slideInBottom"
+        <DialogRoot
+          placement={"center"}
           size="full"
-          closeOnEsc={true}
-          closeOnOverlayClick={true}
+          closeOnEscape={true}
+          closeOnInteractOutside={true}
         >
-          <ModalOverlay bg="grayAlpha.300" backdropFilter="blur(10px)" />
-          <ModalContent bg="">
-            <ModalHeader>{title}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
+          <DialogBackdrop />
+          <DialogTrigger>
+            <Tooltip content="Show me more!">
+              <Image
+                src={image}
+                alt={title}
+                h="250px"
+                w="400px"
+                objectFit="cover"
+                alignSelf="center"
+              />
+            </Tooltip>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogCloseTrigger />
+            <DialogHeader>
+              <DialogTitle>{title}</DialogTitle>
+            </DialogHeader>
+            <DialogBody>
               <VStack>
                 <Box
                   maxW="1450px"
@@ -89,8 +91,8 @@ export const ProjectPanel: FC<Props> = ({
                   <Slide
                     autoplay={false}
                     transitionDuration="500"
-                    canSwipe={false}
-                    indicators={true}
+                    canSwipe={true}
+                    arrows={true}
                   >
                     {slideImages?.map((slideImage, index) => (
                       <Flex className="each-slide" key={index}>
@@ -100,9 +102,10 @@ export const ProjectPanel: FC<Props> = ({
                   </Slide>
                 </Box>
               </VStack>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
+            </DialogBody>
+            <DialogFooter />
+          </DialogContent>
+        </DialogRoot>
       </Center>
       <Text fontSize="4xl">{title}</Text>
       <Text fontSize="sm">{desc}</Text>
@@ -112,16 +115,19 @@ export const ProjectPanel: FC<Props> = ({
         </Text>
       ) : null}
       <Box textAlign="right">
-        <Tooltip label="Visit" bg="gray.700" color="white" hasArrow>
-          <Link href={url ?? "#"} isExternal>
-            <Icon
-              as={ArrowForwardIcon}
-              color={color}
-              boxSize={8}
-              cursor="pointer"
-              mr="0"
-            >
-              Visit
+        <Tooltip
+          content="Visit"
+          contentProps={{
+            css: { "--tooltip-bg": "gray.700", "--tooltip-color": "white" },
+          }}
+          showArrow
+        >
+          <Link href={url ?? "#"} target="_blank">
+            <Icon color={color} boxSize="8" cursor="pointer" mr="0">
+              <>
+                Visit
+                <LuExternalLink />
+              </>
             </Icon>
           </Link>
         </Tooltip>

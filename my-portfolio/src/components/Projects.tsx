@@ -1,17 +1,18 @@
+"use client";
 import {
   Box,
   Grid,
   GridItem,
   Heading,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import { FC, RefObject } from "react";
 import { epodditImages, monkeyImages, spiceImages } from "../consts";
 import { colorMode } from "../theme";
 import { ProjectPanel } from "./ProjectPanel";
+import { useColorModeValue } from "./ui/color-mode";
 
 interface Props {
-  refProp: RefObject<HTMLDivElement>;
+  refProp: RefObject<HTMLDivElement | null>;
 }
 
 export const Projects: FC<Props> = ({ refProp }) => {

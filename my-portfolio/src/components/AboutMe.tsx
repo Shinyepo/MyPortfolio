@@ -1,13 +1,14 @@
+"use client";
 import {
   Grid,
   VStack,
   Heading,
   Text,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { FC } from "react";
 import { colorMode } from "../theme";
+import { useColorModeValue } from "./ui/color-mode";
 const smallText =
   "I'm a fullstack web developer currently looking for a job. Constantly learning new things. In free time i'm developing my Discord bot and Dashboard. You can check my projects below :)";
 const epxandedText =
@@ -30,7 +31,7 @@ export const AboutMe: FC = () => {
   };
   return (
     <Grid minH="800px" p={3} textAlign="left">
-      <VStack spacing={2} mt="150px">
+      <VStack gap={2} mt="150px">
         <Heading>Hi, i'm Daniel!</Heading>
         <Text fontSize="md" w="300px">
           {text === "small" ? (

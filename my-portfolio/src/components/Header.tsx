@@ -1,13 +1,14 @@
+"use client";
 import {
   Flex,
   Grid,
   HStack,
-  StackDivider,
+  StackSeparator,
   Text,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import { FC } from "react";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
+import { useColorModeValue } from "./ui/color-mode";
 
 interface Props {
   toProjects: () => void;
@@ -27,9 +28,9 @@ export const Header: FC<Props> = ({ toContact, toProjects, toSkills }) => {
     >
       <Grid justifySelf="right">
         <HStack
-          spacing={7}
-          divider={
-            <StackDivider
+          gap={7}
+          separator={
+            <StackSeparator 
               height="60%"
               alignSelf="auto"
               borderColor={color}

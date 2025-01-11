@@ -1,18 +1,22 @@
+"use client";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ColorModeScript } from "@chakra-ui/react";
 import { App } from "./App";
-import { theme } from "./theme";
 import * as serviceWorker from "./serviceWorker";
 import "./index.css";
+import { ColorModeProvider } from "./components/ui/color-mode";
+import { Provider } from "./components/ui/provider";
 
 const container = document.getElementById("root");
 const root = createRoot(container!);
 
 root.render(
   <StrictMode>
-    <ColorModeScript initialColorMode={theme.initialColorMode} />
-    <App />
+    <Provider>
+      <ColorModeProvider forcedTheme="dark">
+          <App />
+      </ColorModeProvider>
+    </Provider>
   </StrictMode>
 );
 

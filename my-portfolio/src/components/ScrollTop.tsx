@@ -1,14 +1,15 @@
-import { DownloadIcon } from "@chakra-ui/icons";
-import { Box, Icon, Tooltip, useColorModeValue } from "@chakra-ui/react";
+"use client";
+import { Box, Icon } from "@chakra-ui/react";
 import { FC, useState } from "react";
 import { colorMode } from "../theme";
+import { useColorModeValue } from "./ui/color-mode";
+import { Tooltip } from "./ui/tooltip";
+import { FaArrowUp } from "react-icons/fa";
 
 export const ScrollTop: FC = () => {
   const [visible, setVisible] = useState(false);
   const iconColor = useColorModeValue(colorMode.darkIcon, colorMode.lightIcon);
   const altBg = useColorModeValue(colorMode.altDarkBg, colorMode.altLightBg);
-
-
 
   const scrollEvent = () => {
     const scrolled = document.documentElement.scrollTop;
@@ -29,24 +30,24 @@ export const ScrollTop: FC = () => {
   window.addEventListener("scroll", scrollEvent);
 
   return (
-    <Tooltip label="Scroll to top" hasArrow>
-      <Box
-        display={visible ? "inline" : "none"}
-        pos="fixed"
-        bottom="60px"
-        right="40px"
-        zIndex="1"
-        bg={altBg}
-        p="20px"
-        borderRadius="50%"
-        onClick={scrollToTop}
-        cursor="pointer"
-        boxShadow="xl"
-      >
-        <Icon as={DownloadIcon} color={iconColor} boxSize={8} transform="rotate(180deg)">
-          Scroll to top
-        </Icon>
-      </Box>
-    </Tooltip>
+      <Tooltip content="Scroll to top" showArrow positioning={{placement: "top"}}>
+        <Box
+          display={visible ? "inline" : "none"}
+          pos="fixed"
+          bottom="60px"
+          right="40px"
+          zIndex="1"
+          bg={altBg}
+          p="20px"
+          borderRadius="50%"
+          onClick={scrollToTop}
+          cursor="pointer"
+          boxShadow="xl"
+        >
+          <Icon color={iconColor} boxSize="40px">
+            <FaArrowUp />
+          </Icon>
+        </Box>
+      </Tooltip>
   );
 };
