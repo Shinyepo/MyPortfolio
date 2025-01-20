@@ -6,7 +6,7 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { FC, RefObject } from "react";
-import { epodditImages, monkeyImages, spiceImages } from "../consts";
+import { epodditImages, minecraftImages, monkeyImages, spiceImages, wuffelImages } from "../consts";
 import { colorMode } from "../theme";
 import { ProjectPanel } from "./ProjectPanel";
 import { useColorModeValue } from "./ui/color-mode";
@@ -19,7 +19,7 @@ export const Projects: FC<Props> = ({ refProp }) => {
   const color = useColorModeValue(colorMode.lightBorder, colorMode.darkBorder);
   return (
     <Box borderTop="1px solid" borderColor={color} ref={refProp}>
-      <Heading pt="30px">My Projects</Heading>
+      <Heading pt="30px" size="4xl">My Projects</Heading>
 
       <Grid
         templateRows="repeat(2, 1fr)"
@@ -36,7 +36,17 @@ export const Projects: FC<Props> = ({ refProp }) => {
             desc="Epoddit is a clone of a very popular website called Reddit. Users can create threads to discuss different topics. Comment, like and dislike content they enjoy or not."
             url="https://epoddit.shinyepo.dev/"
             slideImages={epodditImages}
-            tech="TypeScript - React, NextJS, Prisma and Jest."
+            tech="TypeScript - TypeScript, React, NextJS, Prisma and Jest."
+          />
+        </GridItem>
+        <GridItem colSpan={1}>
+          <ProjectPanel
+            title="Wuffel - Discord bot Dashboard"
+            image="https://i.imgur.com/ya3FGQ7.png"
+            desc="Wuffel is a Discord bot with built-in administrative functions. All functions can be configured with a web dashboard."
+            url="https://wuffel.shinyepo.dev/"
+            slideImages={wuffelImages}
+            tech="TypeScript - React, NextJS, GraphQL and Redis."
           />
         </GridItem>
         <GridItem colSpan={1}>
@@ -57,6 +67,17 @@ export const Projects: FC<Props> = ({ refProp }) => {
             url="https://spice.shinyepo.dev/"
             slideImages={spiceImages}
             tech="C# - ASP.NET Core MVC, Stripe"
+          />
+        </GridItem>
+        <GridItem colSpan={1}>
+          <ProjectPanel
+            title="TorqueCraft - Minecraft mod (1.21)"
+            image="https://i.imgur.com/NhpdotM.jpeg"
+            desc="A tech-driven minecraft mod focused on realism. This mod introduces rotary powered machines like fan, sprinkler, grinder, water pump and more. Different machines require different Torque and Angular speed values. To satisfy the needs you can use multiple steam engines or gearboxes with gear ratios. In the near future i will be adding gasoline and diesel powered engines with highier outputs with new machines."
+            url=""
+            slideImages={minecraftImages}
+            tech="Java, NeoForge"
+            wip
           />
         </GridItem>
       </Grid>

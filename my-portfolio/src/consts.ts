@@ -59,3 +59,23 @@ export const epodditImages = [
   { url: "https://i.imgur.com/9hd9XCD.png" },
   { url: "https://i.imgur.com/F1Nxh8P.png" },
 ];
+
+export const wuffelImages = [
+  {url: "https://i.imgur.com/ya3FGQ7.png"},
+  {url: "https://i.imgur.com/BgSvksO.png"},
+  {url: "https://i.imgur.com/BGnk8dQ.png"},
+  {url: "https://i.imgur.com/pzAwxTx.png"},
+  {url: "https://i.imgur.com/BGnk8dQ.png"},
+  {url: "https://i.imgur.com/BGnk8dQ.png"},
+]
+
+export const minecraftImages = [
+  {url: "https://i.imgur.com/NhpdotM.jpeg"},
+  {url: "https://i.imgur.com/gB9PmzH.jpeg"},
+  {url: "https://i.imgur.com/vwWIF1P.png"},
+  {url: "https://i.imgur.com/tgbg864.png"},
+  {url: "https://i.imgur.com/5Z5PNom.jpeg"},
+  {url: "https://i.imgur.com/tOrMhDu.png"},
+  {url: "https://i.imgur.com/yIBw8kh.png"},
+  {url: "https://i.imgur.com/1SR199X.jpeg"},
+]

@@ -17,7 +17,7 @@ export const ComputingSkills: FC<Props> = ({ refProp }) => {
   );
   return (
     <Box ref={refProp}>
-      <Heading pt="30px" borderTop="1px solid" borderColor={color}>
+      <Heading pt="30px" borderTop="1px solid" size="4xl" borderColor={color}>
         My computing skills
       </Heading>
       <Flex
@@ -38,6 +38,7 @@ export const ComputingSkills: FC<Props> = ({ refProp }) => {
         <Skill url="/tech/prisma.png" title="Prisma" />
         <Skill url="/tech/redis.png" title="Redis" />
         <Skill url="/tech/csharp.png" title="C#" />
+        <Skill url="/tech/java.png" title="Java" />
         <Skill url="/tech/bootstrap.png" title="Bootstrap" />
         <Skill url="/tech/git.png" title="Git" />
         <Skill url={gitLogo} title="GitHub" />

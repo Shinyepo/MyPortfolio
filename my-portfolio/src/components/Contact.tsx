@@ -138,7 +138,7 @@ export const Contact: FC<Props> = ({ refProp }) => {
       flexDir="column"
       pb="20px"
     >
-      <Heading pt="30px">Contact me!</Heading>
+      <Heading pt="30px" size="4xl">Contact me!</Heading>
       <Text fontSize="md">
         Feel free to contact me if you have any questions!
       </Text>

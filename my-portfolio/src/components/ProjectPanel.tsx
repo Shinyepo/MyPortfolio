@@ -27,6 +27,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
+import { Tag } from "./ui/tag";
 
 interface Props {
   image: string;
@@ -35,6 +36,7 @@ interface Props {
   tech?: string;
   url?: string;
   slideImages?: Array<slideImages>;
+  wip?:boolean;
 }
 
 type slideImages = {
@@ -49,6 +51,7 @@ export const ProjectPanel = ({
   tech,
   url,
   slideImages,
+  wip
 }: Props) => {
   const color = useColorModeValue(colorMode.lightIcon, colorMode.darkIcon);
 
@@ -107,7 +110,12 @@ export const ProjectPanel = ({
           </DialogContent>
         </DialogRoot>
       </Center>
-      <Text fontSize="4xl">{title}</Text>
+      <Text fontSize="4xl" display="flex" flexWrap="nowrap" alignItems="center">
+        {wip ? (<Tag bg="red.400">
+          WIP
+        </Tag>) : null}
+        {title}
+        </Text>
       <Text fontSize="sm">{desc}</Text>
       {tech ? (
         <Text fontSize="x-small" fontStyle="italic" mt={2}>
@@ -115,11 +123,9 @@ export const ProjectPanel = ({
         </Text>
       ) : null}
       <Box textAlign="right">
+        {url ? (
         <Tooltip
           content="Visit"
-          contentProps={{
-            css: { "--tooltip-bg": "gray.700", "--tooltip-color": "white" },
-          }}
           showArrow
         >
           <Link href={url ?? "#"} target="_blank">
@@ -130,7 +136,7 @@ export const ProjectPanel = ({
               </>
             </Icon>
           </Link>
-        </Tooltip>
+        </Tooltip> ) : null }
       </Box>
     </Box>
   );
