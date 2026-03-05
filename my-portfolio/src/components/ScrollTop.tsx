@@ -34,17 +34,19 @@ export const ScrollTop: FC = () => {
         <Box
           display={visible ? "inline" : "none"}
           pos="fixed"
-          bottom="60px"
-          right="40px"
+          bottom={["60px","60px","60px"]}
+          right={["20px","20px","40px"]}
           zIndex="1"
           bg={altBg}
-          p="20px"
+          p={["10px","10px","20px"]}
           borderRadius="50%"
           onClick={scrollToTop}
           cursor="pointer"
           boxShadow="xl"
+          opacity={["50%","70%"]}
+          _hover={{opacity: "100%"}}
         >
-          <Icon color={iconColor} boxSize="40px">
+          <Icon color={iconColor} boxSize={["25px","25px","40px"]}>
             <FaArrowUp />
           </Icon>
         </Box>

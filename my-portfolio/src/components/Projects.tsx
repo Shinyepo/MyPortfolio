@@ -23,12 +23,11 @@ export const Projects: FC<Props> = ({ refProp }) => {
 
       <Grid
         templateRows="repeat(2, 1fr)"
-        templateColumns="repeat(2, 1fr)"
+        templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(1, 1fr)","repeat(2, 1fr)"]}
         gap={2}
-        py="3rem"
-        px="8rem"
+        py={["1rem","1rem","3rem"]}
+        px={["1rem","1rem","8rem"]}
       >
-        <GridItem colSpan={2} rowSpan={2}></GridItem>
         <GridItem colSpan={1}>
           <ProjectPanel
             title="Epoddit - Reddit Clone"
@@ -36,7 +35,7 @@ export const Projects: FC<Props> = ({ refProp }) => {
             desc="Epoddit is a clone of a very popular website called Reddit. Users can create threads to discuss different topics. Comment, like and dislike content they enjoy or not."
             url="https://epoddit.shinyepo.dev/"
             slideImages={epodditImages}
-            tech="TypeScript - TypeScript, React, NextJS, Prisma and Jest."
+            tech="TypeScript - React, NextJS, Prisma, REST API, Jest and Vercel."
           />
         </GridItem>
         <GridItem colSpan={1}>
@@ -46,7 +45,7 @@ export const Projects: FC<Props> = ({ refProp }) => {
             desc="Wuffel is a Discord bot with built-in administrative functions. All functions can be configured with a web dashboard."
             url="https://wuffel.shinyepo.dev/"
             slideImages={wuffelImages}
-            tech="TypeScript - React, NextJS, GraphQL and Redis."
+            tech="TypeScript - Node.js, React, Next.js, Chakra UI, PostgreSQL, GraphQL, URQL, REST API and Redis."
           />
         </GridItem>
         <GridItem colSpan={1}>
@@ -56,7 +55,7 @@ export const Projects: FC<Props> = ({ refProp }) => {
             desc="A simple browser game about recruiting units, fighting with other players and climbing leaderboard. Complete missions to get resources for upgrading your buildings and recruiting more units. Compete with other players and reach the top of the leaderboard."
             url="https://mf.shinyepo.dev/"
             slideImages={monkeyImages}
-            tech="C# - Blazor WebAssembly, SendGrid"
+            tech="C# - .NET Blazor WebAssembly, Entity Framework Core, REST API and SendGrid"
           />
         </GridItem>
         <GridItem colSpan={1}>
@@ -66,7 +65,7 @@ export const Projects: FC<Props> = ({ refProp }) => {
             desc="This is my very first web app. A e-commerce website. With the manager account you can freely add, change and delete categories, subcategories, menu items, coupons or even users. User accounts have 4 different permission groups. Manager - a admin account with full access, Front Desk - managing orders and delivery, Kitchen - managing preparation state of the order and Customer - can only submit the order. Website is connected with Stripe's(online payment service) test mode."
             url="https://spice.shinyepo.dev/"
             slideImages={spiceImages}
-            tech="C# - ASP.NET Core MVC, Stripe"
+            tech="C# - ASP.NET Core MVC, Entity Framework Core and Stripe"
           />
         </GridItem>
         <GridItem colSpan={1}>
@@ -76,7 +75,7 @@ export const Projects: FC<Props> = ({ refProp }) => {
             desc="A tech-driven minecraft mod focused on realism. This mod introduces rotary powered machines like fan, sprinkler, grinder, water pump and more. Different machines require different Torque and Angular speed values. To satisfy the needs you can use multiple steam engines or gearboxes with gear ratios. In the near future i will be adding gasoline and diesel powered engines with highier outputs with new machines."
             url=""
             slideImages={minecraftImages}
-            tech="Java, NeoForge"
+            tech="Java 21, NeoForge"
             wip
           />
         </GridItem>

@@ -6,7 +6,7 @@ import { Projects } from "./components/Projects";
 import { ScrollTop } from "./components/ScrollTop";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
-import { ComputingSkills } from "./components/ComputingSkills";
+import { ProgrammingSkills } from "./components/ProgrammingSkills";
 import { init } from "@emailjs/browser";
 import { userId } from "./consts";
 import { AboutMe } from "./components/AboutMe";
@@ -33,7 +33,7 @@ export const App = () => {
       <Box textAlign="center" fontSize="xl">
         <AboutMe />
         <Projects refProp={projectRef} />
-        <ComputingSkills refProp={skillsRef} />
+        <ProgrammingSkills refProp={skillsRef} />
         <Contact refProp={contactRef} />
         <Footer />
         <ScrollTop />

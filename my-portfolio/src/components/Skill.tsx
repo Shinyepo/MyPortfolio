@@ -8,8 +8,8 @@ interface Props {
 }
 
 export const Skill: FC<Props> = ({ title, url }) => (
-  <Box alignContent="center" width="200px" height="220px" >
-    <Image margin="auto" boxSize="150px" objectFit="contain" src={url} alt={title} />
-    <Heading mt="10px" as="h5" size="sm">{title}</Heading>
+  <Box alignContent="center" >
+    <Image margin="auto" boxSize={[50,50,150]} objectFit="contain" src={url} alt={title} />
+    <Heading mt={[0,0,"10px"]} size={["xs","xs","md"]} >{title}</Heading>
   </Box>
 );

@@ -24,13 +24,13 @@ export const Header: FC<Props> = ({ toContact, toProjects, toSkills }) => {
       borderBottom="1px solid"
       borderColor={color}
       justifyContent="flex-end"
-      pr="40px"
+      pr={[3,3,"40px"]}
     >
       <Grid justifySelf="right">
         <HStack
-          gap={7}
+          gap={[2, 7]}
           separator={
-            <StackSeparator 
+            <StackSeparator
               height="60%"
               alignSelf="auto"
               borderColor={color}
@@ -38,16 +38,15 @@ export const Header: FC<Props> = ({ toContact, toProjects, toSkills }) => {
           }
         >
           <ColorModeSwitcher />
-          <Text cursor="pointer" onClick={toProjects}>
+          <Text cursor="pointer" fontSize={["xs", "xs", "md"]} onClick={toProjects}>
             My Projects
           </Text>
-          <Text cursor="pointer" onClick={toSkills}>
-            Computing Skills
+          <Text cursor="pointer" fontSize={["xs", "xs", "md"]} onClick={toSkills}>
+            Programming Skills
           </Text>
-          <Text cursor="pointer" onClick={toContact}>
+          <Text cursor="pointer" fontSize={["xs", "xs", "md"]} onClick={toContact}>
             Contact
           </Text>
-          {/* <ColorModeSwitcher /> */}
         </HStack>
       </Grid>
     </Flex>

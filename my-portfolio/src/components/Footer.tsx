@@ -11,14 +11,15 @@ export const Footer: FC = () => {
   const fontColor = useColorModeValue("gray.600", "gray.500");
   const iconColor = useColorModeValue(colorMode.lightIcon, colorMode.darkIcon);
   return (
-    <Box borderTop="1px solid gray" h="120px">
+    <Box borderTop="1px solid gray" h={["80px","80px","120px"]}>
       <Flex
-        m="auto"
+        mx={["5px","5px","auto"]}
         h="100%"
         fontSize="sm"
-        p="15px"
+        px={["2px","2px","15px"]}
+        py={["5px","5px","15px"]}
         color={fontColor}
-        width="60%"
+        width={["","","60%"]}
         justifyContent="space-between"
       >
         <List.Root textAlign={"left"} variant="plain">
@@ -40,7 +41,7 @@ export const Footer: FC = () => {
               boxSize="16px"
               display="inline-block"
             />
-            shinyepo42@gmail.com
+            daniel.berdowski97@gmail.com
           </ListItem>
           <ListItem>
             <List.Indicator

@@ -36,7 +36,7 @@ interface Props {
   tech?: string;
   url?: string;
   slideImages?: Array<slideImages>;
-  wip?:boolean;
+  wip?: boolean;
 }
 
 type slideImages = {
@@ -56,7 +56,7 @@ export const ProjectPanel = ({
   const color = useColorModeValue(colorMode.lightIcon, colorMode.darkIcon);
 
   return (
-    <Box textAlign="left" p="7">
+    <Box textAlign="left" p={["1rem", "1rem", "3rem"]}>
       <Center>
         <DialogRoot
           placement={"center"}
@@ -82,8 +82,11 @@ export const ProjectPanel = ({
             <DialogHeader>
               <DialogTitle>{title}</DialogTitle>
             </DialogHeader>
-            <DialogBody>
-              <VStack>
+            <DialogBody
+              display={["flex", "flex", ""]}
+              flexDir={["column", "column", ""]}>
+              <VStack
+                my={["auto", "auto", ""]}>
                 <Box
                   maxW="1450px"
                   maxH="850px"
@@ -110,12 +113,15 @@ export const ProjectPanel = ({
           </DialogContent>
         </DialogRoot>
       </Center>
-      <Text fontSize="4xl" display="flex" flexWrap="nowrap" alignItems="center">
-        {wip ? (<Tag bg="red.400">
+      <Box display="flex">
+        {wip ? (<Tag alignSelf="center" bg="red.400">
           WIP
         </Tag>) : null}
-        {title}
+        <Text fontSize={["3xl", "3xl", "4xl"]} mt={["1rem", "1rem", ""]} display="flex" flexWrap="nowrap" alignItems="center">
+          {title}
         </Text>
+      </Box>
+
       <Text fontSize="sm">{desc}</Text>
       {tech ? (
         <Text fontSize="x-small" fontStyle="italic" mt={2}>
@@ -124,19 +130,19 @@ export const ProjectPanel = ({
       ) : null}
       <Box textAlign="right">
         {url ? (
-        <Tooltip
-          content="Visit"
-          showArrow
-        >
-          <Link href={url ?? "#"} target="_blank">
-            <Icon color={color} boxSize="8" cursor="pointer" mr="0">
-              <>
-                Visit
-                <LuExternalLink />
-              </>
-            </Icon>
-          </Link>
-        </Tooltip> ) : null }
+          <Tooltip
+            content="Visit"
+            showArrow
+          >
+            <Link href={url ?? "#"} target="_blank">
+              <Icon color={color} boxSize="8" cursor="pointer" mr="0">
+                <>
+                  Visit
+                  <LuExternalLink />
+                </>
+              </Icon>
+            </Link>
+          </Tooltip>) : null}
       </Box>
     </Box>
   );

@@ -73,7 +73,8 @@ export const Contact: FC<Props> = ({ refProp }) => {
     ) {
       return failure("empty");
     }
-    setForm({ message: "", email: "", name: "", topic: "" });
+    console.log(form.email)
+    console.log(formul.current)
 
     toastRef.current = toaster.create({
       title: "Sending message...",
@@ -103,6 +104,7 @@ export const Contact: FC<Props> = ({ refProp }) => {
           },
         });
       }
+    setForm({ message: "", email: "", name: "", topic: "" });
     } else {
       failure("status");
     }
@@ -138,11 +140,11 @@ export const Contact: FC<Props> = ({ refProp }) => {
       flexDir="column"
       pb="20px"
     >
-      <Heading pt="30px" size="4xl">Contact me!</Heading>
+      <Heading pt={["1rem","1rem","3rem"]} size="4xl">Contact me!</Heading>
       <Text fontSize="md">
         Feel free to contact me if you have any questions!
       </Text>
-      <Box w="600px" justifySelf="center" mx="auto" mt="60px">
+      <Box w={[310, 400, 600]} justifySelf="center" mx="auto" mt="60px">
         <form ref={formul} onSubmit={handleSubmit}>
           <VStack gap={2}>
             <Field label="Name">

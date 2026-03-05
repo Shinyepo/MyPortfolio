@@ -9,39 +9,36 @@ interface Props {
   refProp: RefObject<HTMLDivElement | null>;
 }
 
-export const ComputingSkills: FC<Props> = ({ refProp }) => {
+export const ProgrammingSkills: FC<Props> = ({ refProp }) => {
   const color = useColorModeValue(colorMode.lightBorder, colorMode.darkBorder);
-  const gitLogo = useColorModeValue(
-    "/tech/githubDark.png",
-    "/tech/githubLight.png"
-  );
   return (
     <Box ref={refProp}>
-      <Heading pt="30px" borderTop="1px solid" size="4xl" borderColor={color}>
-        My computing skills
+      <Heading pt={["10px","10px","30px"]} borderTop="1px solid" size="4xl" borderColor={color}>
+        My programming skills
       </Heading>
       <Flex
         justifyContent="center"
         wrap="wrap"
-        width="70%"
+        width={["85%", "70%"]}
+        maxWidth="1000px"
         margin="auto"
-        gap="10px"
-        p={6}
+        gap={["10px","10px","25px"]}
+        py={["1rem","1rem","3rem"]}
       >
-        <Skill url="/tech/ts.png" title="TypeScript" />
+        <Skill url="/tech/java.png" title="Java" />
+        <Skill url="/tech/spring.png" title="Spring" />
+        <Skill url="/tech/csharp.png" title="C#" />
+        <Skill url="/tech/net.png" title=".NET" />
         <Skill url="/tech/js.png" title="JavaScript" />
+        <Skill url="/tech/ts.png" title="TypeScript" />
+        <Skill url="/tech/nodejs.png" title="Node.js" />
         <Skill url="/tech/react.png" title="React" />
         <Skill url="/tech/nextjs.png" title="Next.js" />
-        <Skill url="/tech/nodejs.png" title="Node.js" />
         <Skill url="/tech/postgresql.png" title="PostgreSQL" />
-        <Skill url="/tech/graphql.png" title="GraphQL" />
         <Skill url="/tech/prisma.png" title="Prisma" />
+        <Skill url="/tech/graphql.png" title="GraphQL" />
         <Skill url="/tech/redis.png" title="Redis" />
-        <Skill url="/tech/csharp.png" title="C#" />
-        <Skill url="/tech/java.png" title="Java" />
-        <Skill url="/tech/bootstrap.png" title="Bootstrap" />
         <Skill url="/tech/git.png" title="Git" />
-        <Skill url={gitLogo} title="GitHub" />
       </Flex>
     </Box>
   );
