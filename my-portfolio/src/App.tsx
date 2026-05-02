@@ -8,7 +8,6 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ProgrammingSkills } from "./components/ProgrammingSkills";
 import { init } from "@emailjs/browser";
-import { userId } from "./consts";
 import { AboutMe } from "./components/AboutMe";
 import { Toaster } from "./components/ui/toaster";
 
@@ -17,7 +16,7 @@ export const App = () => {
   const contactRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
 
-  init(userId);
+  init(process.env.REACT_APP_USER_ID!);
 
   const scrollToProjects = () => projectRef.current!.scrollIntoView();
   const scrollToContact = () => contactRef.current!.scrollIntoView();

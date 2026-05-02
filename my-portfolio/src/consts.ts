@@ -1,7 +1,3 @@
-export const serviceId = "";
-export const templateId = "";
-export const userId = "";
-
 export const monkeyImages = [
   {
     url: "https://i.imgur.com/hjORCgo.png",

@@ -19,7 +19,6 @@ import {
 import { colorMode } from "../theme";
 import { DarkInput } from "./DarkInput";
 import { sendForm } from "@emailjs/browser";
-import { serviceId, templateId } from "../consts";
 import { useColorModeValue } from "./ui/color-mode";
 import { toaster } from "./ui/toaster";
 import { Field } from "./ui/field";
@@ -73,15 +72,13 @@ export const Contact: FC<Props> = ({ refProp }) => {
     ) {
       return failure("empty");
     }
-    console.log(form.email)
-    console.log(formul.current)
 
     toastRef.current = toaster.create({
       title: "Sending message...",
       type: "info",
     });
 
-    const res = await sendForm(serviceId, templateId, formul.current!);
+    const res = await sendForm(process.env.REACT_APP_SERVICE_ID!, process.env.REACT_APP_TEMPLATE_ID!, formul.current!);
     if (res.status === 200) {
       if (toastRef.current) {
         toaster.update(toastRef.current, {
