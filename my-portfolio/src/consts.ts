@@ -64,12 +64,12 @@ export const wuffelImages = [
 ]
 
 export const minecraftImages = [
-  {url: "https://i.imgur.com/NhpdotM.jpeg"},
-  {url: "https://i.imgur.com/gB9PmzH.jpeg"},
-  {url: "https://i.imgur.com/vwWIF1P.png"},
-  {url: "https://i.imgur.com/tgbg864.png"},
+  {url: "https://i.imgur.com/2TBXTWm.png"},
+  {url: "https://i.imgur.com/XO50U1l.png"},
+  {url: "https://i.imgur.com/3XRpAPq.png"},
+  {url: "https://i.imgur.com/8mP8rI1.png"},
+  {url: "https://i.imgur.com/T5Uh2G8.png"},
   {url: "https://i.imgur.com/5Z5PNom.jpeg"},
-  {url: "https://i.imgur.com/tOrMhDu.png"},
   {url: "https://i.imgur.com/yIBw8kh.png"},
   {url: "https://i.imgur.com/1SR199X.jpeg"},
 ]

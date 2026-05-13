@@ -30,6 +30,27 @@ export const Projects: FC<Props> = ({ refProp }) => {
       >
         <GridItem colSpan={1}>
           <ProjectPanel
+            title="TorqueCraft - Minecraft mod (1.21)"
+            image={minecraftImages[0].url}
+            desc="A tech-driven minecraft mod focused on realism. This mod introduces rotary powered machines like fan, sprinkler, grinder, water pump and more. Different machines require different Torque and Angular speed values. To satisfy the needs you can use multiple steam engines or gearboxes with gear ratios. In the near future i will be adding gasoline and diesel powered engines with highier outputs with new machines."
+            url=""
+            slideImages={minecraftImages}
+            tech="Java 21, NeoForge"
+            wip
+          />
+        </GridItem>
+        <GridItem colSpan={1}>
+          <ProjectPanel
+            title="MonkeyFigths - a browser game"
+            image="https://i.imgur.com/bnq3PSG.png"
+            desc="A simple browser game about recruiting units, fighting with other players and climbing leaderboard. Complete missions to get resources for upgrading your buildings and recruiting more units. Compete with other players and reach the top of the leaderboard."
+            url="https://mf.shinyepo.dev/"
+            slideImages={monkeyImages}
+            tech="C# - .NET Blazor WebAssembly, Entity Framework Core, REST API and SendGrid"
+          />
+        </GridItem>
+        <GridItem colSpan={1}>
+          <ProjectPanel
             title="Epoddit - Reddit Clone"
             image="https://i.imgur.com/4bvGZPP.png"
             desc="Epoddit is a clone of a very popular website called Reddit. Users can create threads to discuss different topics. Comment, like and dislike content they enjoy or not."
@@ -50,33 +71,12 @@ export const Projects: FC<Props> = ({ refProp }) => {
         </GridItem>
         <GridItem colSpan={1}>
           <ProjectPanel
-            title="MonkeyFigths - a browser game"
-            image="https://i.imgur.com/bnq3PSG.png"
-            desc="A simple browser game about recruiting units, fighting with other players and climbing leaderboard. Complete missions to get resources for upgrading your buildings and recruiting more units. Compete with other players and reach the top of the leaderboard."
-            url="https://mf.shinyepo.dev/"
-            slideImages={monkeyImages}
-            tech="C# - .NET Blazor WebAssembly, Entity Framework Core, REST API and SendGrid"
-          />
-        </GridItem>
-        <GridItem colSpan={1}>
-          <ProjectPanel
             title="Spice - E-commerce"
             image="https://i.imgur.com/Fs4U0FE.png"
             desc="This is my very first web app. A e-commerce website. With the manager account you can freely add, change and delete categories, subcategories, menu items, coupons or even users. User accounts have 4 different permission groups. Manager - a admin account with full access, Front Desk - managing orders and delivery, Kitchen - managing preparation state of the order and Customer - can only submit the order. Website is connected with Stripe's(online payment service) test mode."
             url="https://spice.shinyepo.dev/"
             slideImages={spiceImages}
             tech="C# - ASP.NET Core MVC, Entity Framework Core and Stripe"
-          />
-        </GridItem>
-        <GridItem colSpan={1}>
-          <ProjectPanel
-            title="TorqueCraft - Minecraft mod (1.21)"
-            image="https://i.imgur.com/NhpdotM.jpeg"
-            desc="A tech-driven minecraft mod focused on realism. This mod introduces rotary powered machines like fan, sprinkler, grinder, water pump and more. Different machines require different Torque and Angular speed values. To satisfy the needs you can use multiple steam engines or gearboxes with gear ratios. In the near future i will be adding gasoline and diesel powered engines with highier outputs with new machines."
-            url=""
-            slideImages={minecraftImages}
-            tech="Java 21, NeoForge"
-            wip
           />
         </GridItem>
       </Grid>
